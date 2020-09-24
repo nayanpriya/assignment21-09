@@ -1,28 +1,32 @@
 import React from 'react'
 import './index.css'
-import { getData } from '../Datasource/data.js'
-import Usercard from '../RenderCards/Usercard.js'
+import { getData, getDataByUserDetails } from '../Datasource/data.js'
+import UserCardContainer from '../RenderCards/UserCardContainer.js'
 
 export default class SearchBox extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { userList: null }
+        this.state = { userList: null, usersListOnSearched: null }
+    }
+    componentDidMount() {
+        getData().then((data) => { this.setState({ userList: data }) })
     }
 
     serachText = (event) => {
         var text = event.target.value;
         console.log(text)
-        setTimeout(() => {
-            getData(text).then((data) => { })
-        }, 1000)
-
+        // TODO : thrttling
+        // TODO : get data once only
+        var usersListOnSearched = getDataByUserDetails(this.state.userList, text)
+        this.setState({ usersListOnSearched: usersListOnSearched })
     }
 
     render() {
-        const { userList } = this.state
-        return (<div><input id="search_text" onChange={this.serachText}></input>
-            <Usercard userList={userList}></Usercard>
+        const { usersListOnSearched } = this.state
+        return (<div class="container">
+            <input id="search_text" onChange={this.serachText}></input>
+            <UserCardContainer userList={usersListOnSearched}></UserCardContainer>
         </div>)
     }
 }

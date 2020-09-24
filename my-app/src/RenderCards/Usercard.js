@@ -7,13 +7,14 @@ export default class Usercard extends React.Component {
 
     render() {
         const { userList } = this.props
-        return (<div className="user_details">
+        console.log(userList)
+        return (<div class="user_details">
             {userList && userList.map(user => {
-                return (<ul>
-                    <li>Nayan</li>
-                    <li>Nayan</li>
-                    <li>Nayan</li>
-                </ul>)
+                return (<div key={user.id}>
+                    <p>{user.id}</p>
+                    <p>{user.name}</p>
+                    <p>{user.id}</p>
+                </div>)
 
             })}
 

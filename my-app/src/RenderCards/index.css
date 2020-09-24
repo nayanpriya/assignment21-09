@@ -1,4 +1,4 @@
 .user_details{
-    height :100px;
-    width :50px;
+    border : 0.5px dotted red;
+    background-color: yellow;
 }
