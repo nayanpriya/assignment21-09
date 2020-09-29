@@ -1,4 +1,9 @@
 .user_details{
-    border : 0.5px dotted red;
-    background-color: yellow;
+    
+}
+.display_box_hover, .user_details :hover {
+    background-color:#FFFF99;
+}
+.user_info_divider{
+    border:0.5px solid #fff;
 }

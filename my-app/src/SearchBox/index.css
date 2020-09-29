@@ -13,3 +13,6 @@
     height: 300px;
     overflow-y: auto;
 }
+.display_box_hover, .user_details :hover {
+    background-color:#FFFF99;
+}

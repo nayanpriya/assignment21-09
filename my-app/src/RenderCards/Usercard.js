@@ -5,6 +5,8 @@ export default class Usercard extends React.Component {
 
 
 
+
+
     render() {
         const { userList } = this.props
         console.log(userList)
@@ -13,12 +15,14 @@ export default class Usercard extends React.Component {
                 return (<div key={user.id}>
                     <p>{user.id}</p>
                     <p>{user.name}</p>
-                    <p>{user.id}</p>
+                    <p>{user.address}</p>
+                    <div class="user_info_divider"></div>
                 </div>)
 
-            })}
+            })
+            }
 
-        </div>)
+        </div >)
     }
 
 }
